@@ -1,0 +1,64 @@
+************************************
+* R Stylometry - DHSI - 2019-06-10 *
+************************************
+https://github.com/JoannaBy/DHSI2019-Stylometry
+
+
+*********
+* DAY 1 *
+*********
+
+Comparing texts: whether there are relations between different texts
+- authorship: can we extract some lexical features that allow us to tell who the author is?
+- extend the notion to measure differences between texts
+- seems to be always relational (could be adapted for year by year?)
+
+*********
+*History*
+*********
+- goes back to Lorenzo Valla and the Donation of Constantine (forgery) to see if it was real; allegedly written by the emperor of Constantine to give the pope the right to lands
+- counted grammatical mistakes that could not have been done by a native speaker of the Greek language four centuries earlier
+- feudal terminology in use throughout that wasn't in use; anachronisms throughout
+
+1851/1887 Shakespeare authorship question -- the initial idea of measuring language
+ - Augustus de Morgan (1806-187)
+     - opened the question of Shakespeare authorship with a really short letter saying, 
+     "hey, maybe we might look into this!"
+ - Thomas C Mendenhall (1841-1924)
+     - started looking into it
+     
+1888: authorship of Pauline Epistles
+ - William Benjamin Smith (aka Conrad Mascol, 1850-1934)
+ - St. Paul's Epistles written by multiple people
+ 
+1890: chronology of Plato's dialogues:
+ - Wincenty Lutoslawksi -(1864-1964) - coined term stylometry
+ - assess the development of Plato's logic, and to do so he needed to know the chronology
+
+1980s: John Burrows, book on Jane Austen - Computation and Criticism
+ - bring stylometry back to the domain of literary studies
+ - sparked a great number of studies looking at authorship in literary sources
+
+********************
+*WHAT IS STYLOMETRY*
+********************
+- language doesn't matter, but comparing across languages is really hard
+- measure the words as they appear in the text, also can lemmitize
+- bag o' words that needs to be counted and then sorted, and then we compare them
+   - create frequency profiles and then compare them one to another
+   - use dendrogram to identify groups of texts
+        - Grouping of texts based on features
+        - also able to identify plagiarism
+          - Mysterious Mr. Robert Galbraiht - book did poorly, but turns out it was by JK
+            Rowling, so then the sales sky-rocketed
+   - imitation
+   - translation, even if translated the signal of an author still exists in a different
+     language (the Dickens signal), but is the trace of the translater still there, but it is
+     rather weak
+   - what are the relations between characters in a book
+   
+Text is not just one signal, but you have to separate the signal from the noise - key is figuring out how to isolate them and tell them apart
+
+
+
+
