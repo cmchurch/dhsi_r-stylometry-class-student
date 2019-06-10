@@ -59,6 +59,28 @@ Comparing texts: whether there are relations between different texts
    
 Text is not just one signal, but you have to separate the signal from the noise - key is figuring out how to isolate them and tell them apart
 
+******************
+* Considerations *
+******************
 
+Raw vs normalized
+Make sure texts are roughly the same length, roughly the same number of tokens
+Look for patterns
 
+Burrow's Delta Formula (text comparison) math:
+delta (T,T1) = 1/n SUM(to n, i=1)|z(fi(T))-z(fi(T1)
+compared to average use in the corpus
 
+average of averages of relative frequencies normalized to the z-score (std dev)
+
+Differences in frequencies
+
+closer to zero means that the texts are similar
+
+PCA
+Principal Component Analysis
+- tries to position the texts in relation to each other
+- principal component (a vector of features and some pattern of features)
+
+Bootstrap Consensus Tree
+vote on which connections are valid
