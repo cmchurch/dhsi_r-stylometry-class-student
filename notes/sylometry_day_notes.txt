@@ -84,3 +84,68 @@ Principal Component Analysis
 
 Bootstrap Consensus Tree
 vote on which connections are valid
+
+*********
+* DAY 2 *
+*********
+
+EXAMPLE
+-------
+Hildegard of Bingen (13th c.), got older and hired secretaries to help with writing in Latin; late in her life she gave her secretary (Gilbert of Gemlaux) the right to make any corrections he saw fit
+
+So, who wrote the Vision of St. Martin? In an accompanying picture, Hildegard is using a wax tablet and he is using a codex, so she's taking notes and he's shaping it; she basically told him that she would provide notes, and he would know best how to turn it into good writing
+
+Bernardus Silvestris, Hildegard and Guibert -- used early component analysis to compare three authors (Bernadus as control, with Hildegard and Guibert) -- a selection of 6 lemmitized function words in Latin to make comparisons
+
+USING PCA, you can see that the Vision of St. Martin was actually written by her secretary (Gilbert); he put her name on the title page because he knew her celebrity would sell the work -- but we also see a FOURTH author, which is a combination of Hildegard and Guibert's style (a virtual author whose style was defined by H.'s writing and G.'s editing).
+
+
+MATH
+----
+Culling - what to filter out
+https://joannaby.github.io/Culling/Culling.htm
+ - you can filter out proper names, because we don't really need them to distinguish between authors, only really between the texts -- way too specific
+ 
+Types vs Tokens
+ - tokens - each occurence of word is unique, so repetitions are included as tokens
+ - types - each occurence of the word "type" is unique -- do not repeat the same 	word multiple times
+
+Problem of tails - huge tail of words that are not terribly helpful, because they only appear once in the text
+
+Chosing words that tell us about meaningful differences
+
+Culling: excluding some words (tokens/types) from our frequency tables, so that they are not included in the analysis -- "automatic manipulation of the word list" - exact percentage of the words that we do not want to include in the text comparison
+ -- so, a culling of 20% would mean that only the words that appear in at least 20% of the texts will be included in the wordlist
+ -- can be used to filter out some genre specific terms
+
+DOS and DON'TS 
+--------------
+DO:
+* Remember: the higher the culling, the fewer MFW on your list.
+* Carefully think what % of culling will be useful
+* usually 20-50% is fine for excluding single works’ noise,
+* higher values should be applied for very specific uses.
+* Compare results with and without culling.
+
+TFIDF scoring - term frequency–inverse document frequency, is a numerical statistic that is intended to reflect how important a word is to a document in a collection or corpus
+   -- The tf–idf value increases proportionally to the number of times a word appears in the document and is offset by the number of documents in the corpus that contain the word
+
+TOPIC MODELLING - options
+ - invoke mallet as package in R
+ - also could use topicmodels package in R
+ - finally, there is the Dariah TopicExplorer program, which is very beginner friendly
+ 
+ - you can do clustering accroding to the proportions of topics
+ 
+ 
+DISTANCE MEASURES
+-----------------
+Zipf's law 
+ - the frequency of any word is inversely proportional to its rank in the frequency table (the more frequent a word, the more common it is)
+   - function words at the top (the, a, and)
+   - common words (made, miss, too, sir, dear, make) at the middle
+   - distintive words (abel, accomodations, acre, addicted, advertisement) at the bottom
+ - the more frequent a word, the more meanings it has
+   - "drink" can be verb or noun, "round" can be verb, noun, adjective
+ - principle of least effort - don't want to create new words, so we use what we already have -- so with writing processes, we most generally reach for words that we know and use often
+ 

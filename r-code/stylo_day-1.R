@@ -56,7 +56,8 @@ E(net)$color = apply(c_scale_cont(E(net)$Weight), 1, function(x) rgb(x[1]/255,x[
 E(net)$width <- as.numeric(E(net)$Weight) * 3        #set the edge weight
 
 #define the layout
-layout <- layout_in_circle(net, order=order(degree(net)))
+#layout <- layout_in_circle(net, order=order(degree(net)))
+layout <- layout.fruchterman.reingold
 #layout <- layout.circle
 
 #PLOT THE GRAPH
