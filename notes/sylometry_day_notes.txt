@@ -147,5 +147,50 @@ Zipf's law
    - distintive words (abel, accomodations, acre, addicted, advertisement) at the bottom
  - the more frequent a word, the more meanings it has
    - "drink" can be verb or noun, "round" can be verb, noun, adjective
- - principle of least effort - don't want to create new words, so we use what we already have -- so with writing processes, we most generally reach for words that we know and use often
+ - principle of least effort - don't want to create new words, so we use what we already have -- so with writing processes, we most generally reach for words that we know and use often, while more stylistically or "lexically rich" words are used less frequently (exponentially so)
+ - the long tail of the distribution
+
+Lexical Richness
+ - Comparing Types vs Tokens (how many unique words vs how many total tokens) to show lexical richness
+
+Are all words equally important?
+ - process of analysis consists of 
+    1. selecting words
+	2. creating table of frequencies
+	3. using distance measures to assess similarity
+
+- HOW TO MEASURE "DISTANCE"
+ - number of words you use deterimines the number of dimensions (we can have a multidimensional space when doing the math) -- using geometry as a way to count the differences between words (i.e. converting them to vectors)
+	- Using 1 dimension: the difference in absolute frequency between the two texts (only x axis)
+	- Two dimensional space could compare two words (x,y axis)
+	- Three dimensional space could compare three words (x,y,z axis)
+	- But what about 100 words with 100 dimensions?
+	- we wrinkle time using two multidimensional spaces (imagined geometries)
+		- using a table (matrix) of distances (clustering, MDS - multi-dimensional scaling)
+		- rotating a multidimensional space (PCA)
+
+PCA - cover only some components of the information (PCA is a lossy format)
+ - basic concept: looking at data to find coordinates that represent the biggest amount of information -- finding the most optimal representation
+     -e.g. rotating a 3d kettle on a computer screen (2d) to show to most accurate representation of what a kettle is
+ - Components in PCA are sets of features which grant best information preservation, note however that they always havea  value covering a relatively small percentage of information
+ - represent the most distinctive features
+ - privileges the features that have the greatest spread (demonstrates the largest variance of the data)
+    - creating an artifical vector using a combination of a certain number of words (so the number of dimensions are identical to the number of words)
+	- in PCA, each axis has a percentage of "features" that shows how many words contributed to the vector created on the X axis, and again on the Y axis
+ - PCA does not rely on the distance of the words at all, it only rotates the multidimensional space
+	
+	Mp3 is PCA on musical data
  
+ *** YOU HAVE TO KNOW YOUR MATERIAL CLOSELY ***
+ 
+Calculating the distances between two words (and two texts)
+|a1 - b1| (absolute value of the frequency of the word between two texts)
+|a1 - b1| + |a2 - b2| + |a3 - b3| .... (sum up the differences)
+
+Stylometric disntances as political systems
+DISTANCE MEASURE				POLITICAL SYSTEM
+Euclidean disntance 	=> 		tyranny
+Manhattan distance		=>		oligarchy
+
+Euclidean distance
+
