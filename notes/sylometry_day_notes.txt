@@ -223,5 +223,9 @@ Bootstrapping
  - each iteration "votes" for each potential link, which then leads to a consesnus tree; all "votes" look for the connection to surpass a particular p value (i.e. p=0.5 means that the links only display for those that showed up in 50% of iterations)
  - basically, build and compare multiple networked versions of the data based on data/ties and then prune it down to only the strongest (most robust) ties, then create dendrogram from that
  - a pruning procedure
- 
 
+NETWORK
+ - In stylo, you run a consensus iteration of cluster analysis, building a network for each one.
+    - edge weights are the summation of the number of networks with that tie
+ - networks are useless, though pretty, unless we ask a good research question
+  

@@ -3,9 +3,11 @@ library(network)
 library(igraph)
 library(ggplot2)
 library(scales)
+library(RColorBrewer) 
+
 
 setwd("E:/DHSI2019_r-stylometry")
-my.corpus = stylo(gui=F,corpus.dir="28british")
+my.corpus = stylo(gui=F,corpus.dir="28british",network=TRUE,frequencies="table_with_frequencies.txt")
 
 edge_list = my.corpus$list.of.edges
 
@@ -40,7 +42,7 @@ max_category = max(as.numeric(V(net)$cat))
 #DEFINE COLOR RAMP
 c_pal <- colorRampPalette(brewer.pal(9,"Reds"))(100)
 c_scale_cont <- colorRamp(c_pal)
-c_pal_discrete <- colorRampPalette(brewer.pal(max_catgeory,"Paired"))(max_category)
+c_pal_discrete <- colorRampPalette(brewer.pal(max_category,"Paired"))(max_category)
 c_scale_discrete <- colorRamp(c_pal_discrete)
 
 #NODE ATTRIBUTES
