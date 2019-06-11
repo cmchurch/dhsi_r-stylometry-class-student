@@ -193,4 +193,35 @@ Euclidean disntance 	=> 		tyranny
 Manhattan distance		=>		oligarchy
 
 Euclidean distance
+------------------
+take the frequency of the word in a text, then take another frequency
+
+Generally advised to use the distance measures using Z-scores (Burrows, Edel, etc.)
+ - twice normalized (against total tokens and against std deviation)
+
+*******************
+* AFTERNOON DAY 2 *
+*******************
+
+Example
+-------
+Greek New Testament
+- Synoptic Gospels (c. 50% common material)
+   - Mark (c. 68-73), Matthew (c. 70-100), Luke (c. 80-100)
+- John (c. 90-100) - gospel developed from a Johannine circle
+- Acts (c. 64-69) traditionally attributed to St. Luke
+
+Bootstrapping
+- way of thinking, and a way to get around cherry picking
+- replicating your study many times, each time with slightly different parameters
+	- intensive resampling of the original data
+	- used when original data is not sufficient
+	- or when the distribution is not normal (i.e. Gaussian)
+- Baron Munchausen, pulled himself out of a swamp by his hair (German) or by his own bootstraps (English) without anyone's help
+- iterate multiple times with slightly different parameters, then create a dendrogam
+ - creates a confidence interval based on how many times the connection reappear, which then determines the break points of the dendrogram
+ - each iteration "votes" for each potential link, which then leads to a consesnus tree; all "votes" look for the connection to surpass a particular p value (i.e. p=0.5 means that the links only display for those that showed up in 50% of iterations)
+ - basically, build and compare multiple networked versions of the data based on data/ties and then prune it down to only the strongest (most robust) ties, then create dendrogram from that
+ - a pruning procedure
+ 
 

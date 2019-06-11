@@ -1,4 +1,8 @@
-#DISTANCE
+#CHRISTOPHER CHURCH
+#DHSI 2019
+
+# DISTANCE (example code based on the PDF at 
+# https://github.com/JoannaBy/DHSI-Stylometry/blob/master/DistanceMeasures.pdf)
 
 setwd('E:/DHSI2019_r-stylometry')
 
