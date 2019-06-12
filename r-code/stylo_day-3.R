@@ -7,7 +7,7 @@ library(RColorBrewer)
 
 
 setwd("E:/DHSI2019_r-stylometry")
-my.corpus = stylo(gui=F,corpus.dir="28british",network=TRUE,frequencies="table_with_frequencies.txt")
+my.corpus = stylo(gui=F,corpus.dir="28british",network=TRUE)
 
 edge_list = my.corpus$list.of.edges
 
@@ -21,7 +21,7 @@ deg <- degree(net, mode="all")
 V(net)$author = V(net)$name
 V(net)$author = sub("\\_.*", "", V(net)$author)
 
-#GROUPING FUNCTION
+#AUTHOR GROUPING FUNCTION
 group <- function(x) {
   last = as.character(x[1])
   cat = 1
@@ -47,7 +47,7 @@ V(net)$members <- membership(louvain)
 c_pal <- colorRampPalette(brewer.pal(9,"Reds"))(100)
 c_scale_cont <- colorRamp(c_pal)
 #c_pal_discrete <- colorRampPalette(brewer.pal(max_category,"Set3"))(max_category)
-c_pal_discrete <- brewer.pal(7,"Set3")
+c_pal_discrete <- brewer.pal(7,"Dark2")
 c_scale_discrete <- colorRamp(c_pal_discrete)
 
 #NODE ATTRIBUTES
@@ -55,11 +55,12 @@ V(net)$size <- deg                    #set the size of the vertices to degree
 #V(net)$color <- adjustcolor("darkred", alpha.f = .5)
 
 for (i in 1:length(V(net)$members)) {
-  V(net)$color[i]= c_pal_discrete[V(net)$members[i]] #set color based on community
-#  V(net)$label.color[i]= c_pal_discrete[V(net)$members[i]] #set color based on community
-}
+ # V(net)$color[i]= c_pal_discrete[V(net)$members[i]] #set color based on community
+  V(net)$label.color[i]= c_pal_discrete[V(net)$members[i]] #set color based on community
+  V(net)$color = "white"
+  }
 
-V(net)$label.color="black"
+#V(net)$label.color="black"
 V(net)$label.font=2
 
 #EDGE ATTRIBUTES
@@ -79,11 +80,12 @@ layout <- layout.fructerman.reingold.grid
 plot(net,
             edge.arrow.size=.4,
             layout=layout,
-            main="28 British Novels\nGrouped By Louvain Clustering",
+            main="28 British Novels\nGrouped By Louvain Modularity Class",
+            sub="Employs r Stylo package using technique outlined in \nMaciej Eder, Visualization in stylometry: Cluster analysis using networks, Digital Scholarship \nin the Humanities, Volume 32, Issue 1, April 2017, Pages 50-64, https://doi.org/10.1093/llc/fqv061\n\n",
             asp=1)
 
 #add a legend
-legend("bottom", 
+legend("right", 
        legend=levels(as.factor(V(net)$members)), 
        col = c_pal_discrete, 
        bty = "n", 
@@ -91,17 +93,17 @@ legend("bottom",
        pt.cex = 3, 
        cex = 1.5, 
        text.col="black", 
-       horiz = TRUE, 
-       inset = c(-0.2, -0.2)
+       horiz = FALSE, 
+       inset = c(0, 0)
        )
 
 legend("left", 
        legend=levels(as.factor(deg)), 
        col = "black", 
        bty = "n", 
-       pch=10, 
-       pt.cex = as.numeric(levels(as.factor(deg)))/3, 
-       cex = 1.5, 
+       pch=1, 
+       pt.cex = as.numeric(levels(as.factor(deg)))/2.8, 
+       cex = 1.2, 
        text.col="black", 
        horiz = FALSE, 
        inset = c(0, 0),
