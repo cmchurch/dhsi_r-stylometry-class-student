@@ -2,7 +2,7 @@
 
 library(stylo)
 library(igraph)
-library(networkd3)
+library(networkD3)
 
 
 setwd("E:/DHSI2019_r-stylometry")
